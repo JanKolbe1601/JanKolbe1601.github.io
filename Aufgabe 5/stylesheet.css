@@ -11,6 +11,11 @@ h2 {
     color: #ffffff;
 }
 
+main{
+    width: 65%;
+    float: left; 
+}
+
 .zentrierte-tabelle {
     clear:both; 
     height: auto; 
@@ -29,6 +34,20 @@ h2 {
     display: inline; 
 }
 
+aside{
+    
+    width: 29%;
+    float: right;
+    text-decoration: none;
+    background-color: #464444
+    
+}
+
+aside:hover
+{
+    background-color: #0000ff;
+    width: 34%;
+}
     
 
 section {
@@ -41,24 +60,85 @@ section {
 article{
     text-align: left;
     /*background-color: #0000ff*/
-    width: 90%;
+    width: 100%;
 
 }
 
 img {
+    align-items: center;
+    width: 10em;
+    height: 10em;
     border: 5px solid #0000ff;
     border-radius: 80%
+    
+}
+
+img:hover{
+    -webkit-filter: grayscale(90%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(90%);
 }
 
 body {
+    margin: 0 ;
     color: #ffffff;
-    /*background-color: #0000ff*/
+    background-color: #000000
+    /*
     background-image: url("Hintegrundbild 2.jpg"); 
     background-size: 100% !important;  
     background-repeat: no-repeat; 
     background-attachment: fixed;   
+    */
 }
 
 footer{
-    text-align: center
+    margin: 5px;
+    width:100%;
+    clear: both;
+    background-color: #000000;
+    text-align: center;
 }
+
+.nav {
+    background-image: url("Hintegrundbild 2.jpg");
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
+  
+  .nav a {
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+  }
+  
+  .nav a:hover {
+    background-color: #dddddd;
+    color: black;
+  }
+
+  .eins{
+    width: 30%;
+    height: 500px;
+    overflow: scroll;
+    float: left;
+    margin: 5px
+  }
+
+  .zwei{
+    width: 30%;
+    height: 500px;
+    overflow: scroll;
+    float: left;
+    margin: 5px
+  }
+
+  .drei{
+    width: 30%;
+    height: 500px;
+    overflow: scroll;
+    float: left;
+    margin: 5px
+
+  }
