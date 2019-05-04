@@ -1,0 +1,64 @@
+h1 {
+
+    color: #ffffff;
+    /*background-color: #000000;*/
+    font-size: 3em ;
+    font-family: Impact;
+    text-align: center      
+}
+
+h2 {
+    color: #ffffff;
+}
+
+.zentrierte-tabelle {
+    clear:both; 
+    height: auto; 
+    padding: 0px 0px 0px; 
+    margin: 0px; 
+    text-align: center   
+} 
+
+#navi ul {
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+} 
+        
+#navi li {
+    display: inline; 
+}
+
+    
+
+section {
+    text-align: left;
+    /*background-color: #0000ff*/
+    border: 1px solid #0000ff;
+    width: 100%;
+}
+
+article{
+    text-align: left;
+    /*background-color: #0000ff*/
+    width: 90%;
+
+}
+
+img {
+    border: 5px solid #0000ff;
+    border-radius: 80%
+}
+
+body {
+    color: #ffffff;
+    /*background-color: #0000ff*/
+    background-image: url("Hintegrundbild.jpg"); 
+    background-size: 100% !important;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed;   
+}
+
+footer{
+    text-align: center
+}
