@@ -102,6 +102,7 @@ footer{
     background-image: url("Hintegrundbild 2.jpg");
     overflow: hidden;
     margin-bottom: 5px;
+    width: 100%;
   }
   
   .nav a {
