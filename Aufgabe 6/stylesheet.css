@@ -126,7 +126,8 @@ margin: 5px
 
 }
 
-.menu {
+
+.dropbtn {
   background-image: url("Hintegrundbild 2.jpg");
   color: white;
   padding: 16px;
@@ -135,12 +136,12 @@ margin: 5px
   transition: front-size 0.5s;
 }
 
-.burger {
+.dropdown {
   position: relative;
   display: inline-block;
 }
 
-.content {
+.dropdown-content {
   display: none;
   position: absolute;
   background-image: url("Hintegrundbild 2.jpg");
@@ -148,18 +149,18 @@ margin: 5px
   z-index: 1;
 }
 
-.content a {
+.dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.content a:hover {background-image: url("Hintegrundbild 2.jpg");}
+.dropdown-content a:hover {background-image: url("Hintegrundbild 2.jpg");}
 
-.burger:hover .content {display: block;}
+.dropdown:hover .dropdown-content {display: block;}
 
-.burger:hover .menu {background-image: url("Hintegrundbild 2.jpg");}
+.dropdown:hover .dropbtn {background-image: url("Hintegrundbild 2.jpg");}
 
 
 @media screen and (max-width: 740px){
