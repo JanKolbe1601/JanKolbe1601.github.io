@@ -126,8 +126,7 @@ margin: 5px
 
 }
 
-/* Dropdown Button */
-.dropbtn {
+.menu {
   background-image: url("Hintegrundbild 2.jpg");
   color: white;
   padding: 16px;
@@ -136,14 +135,12 @@ margin: 5px
   transition: front-size 0.5s;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
+.burger {
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+.content {
   display: none;
   position: absolute;
   background-image: url("Hintegrundbild 2.jpg");
@@ -151,20 +148,61 @@ margin: 5px
   z-index: 1;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
+.content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-image: url("Hintegrundbild 2.jpg");}
+.content a:hover {background-image: url("Hintegrundbild 2.jpg");}
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.burger:hover .content {display: block;}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-image: url("Hintegrundbild 2.jpg");}
+.burger:hover .menu {background-image: url("Hintegrundbild 2.jpg");}
 
+
+@media screen and (max-width: 740px){
+
+  .eins{
+    width: 100%;
+    position: relative;
+    margin: 5px
+  }
+  
+  .zwei{
+    width: 100%;
+    position: relative;
+    margin: 5px
+  }
+  
+  .drei{
+    width: 100%;
+    position: relative;
+    margin: 5px  
+  }
+  
+
+.aside{
+  width: 100%;
+  position: relative;
+  margin-left: 0%;
+  margin-top: 10px;
+}
+
+footer{
+  width: 100%;
+  position: relative;
+}
+  main{
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  section{
+  width: 43%;
+  }
+}
