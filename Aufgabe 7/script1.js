@@ -38,9 +38,8 @@ function LOL2() {
     console.log("B3 wurde gedrückt");
     let Zahl1 = 6;
     let Zahl2 = 8;
-    let Wort1 = "Wie";
-    let Wort2 = "gehts";
-    Zahl1 = 14; // neuer Wert zugewiesen
+    let Wort1 = "Wie ";
+    let Wort2 = "gehts ";
     console.log("Rechnungen");
     console.log(Zahl1 + Zahl2);
     console.log(Wort1 + Wort2);
