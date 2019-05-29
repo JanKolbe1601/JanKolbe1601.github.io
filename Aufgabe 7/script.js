@@ -1,13 +1,11 @@
 console.log("Hallo :)");
-window.onload = function(){
-
+window.onload = function () {
     console.log("Objekte wurden geladen");
     document.getElementById("B1").addEventListener("click", ChangeButton1);
     document.getElementById("B2").addEventListener("click", LOL1);
     document.getElementById("B3").addEventListener("click", LOL2);
     newtext();
-}
-
+};
 // HTML-Elemete über TypeScript
 function newtext() {
     let heading = document.createElement("h1");
@@ -21,16 +19,15 @@ function newtext() {
     element = document.getElementById("id1");
     element.appendChild(para);
 }
-
 // HTML-Element ändert seinen Inhalt
 function ChangeButton1() {
     console.log("B1 wurde gedrückt");
-    document.getElementById("B1").innerHTML = "#Yay"; 
+    document.getElementById("B1").innerHTML = "#Yay";
 }
 // HTML Element Klasse ändert sich 
 function LOL1() {
     console.log("B2 wurde gedrückt");
-    document.getElementById("B2").className = "gedrückter Button"; 
+    document.getElementById("B2").className = "gedrückter Button";
     console.log("Die Klasse von B2 hat sich in gedrückter Button geändert");
 }
 // Rechnungen in der Konsole
@@ -45,3 +42,4 @@ function LOL2() {
     console.log(Wort1 + Wort2);
     console.log(Wort2 + Zahl2);
 }
+//# sourceMappingURL=script.js.map
