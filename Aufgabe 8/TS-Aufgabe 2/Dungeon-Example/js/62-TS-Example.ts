@@ -38,10 +38,10 @@ let playerXP : number = 0;                                                      
 let playerXPperLevel : number = 500;                                                // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
-let prefix : string[] = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Kniescheibenzertrümmernde(s) "]; // length = 6, da 6 Einträge. Von 0-5.
-let monsterName : string[] = ["Ratte", "Nagetier", "Ungeziefer"]; // length = 3, da 3 Einträge. Von 0-2.
-let suffix : string[] = [" des Verderbens", " aus der Hölle", " der Lethalität", " mit Rheuma", " der Redundanz", " der Zerberstung"]; // length = 6, da hier 6 Einträge sind. Von 0-5.
-let weaponarray : string[] = ["Bleistift","Rasierer von Gilette Abdi","Messer","Bazuka","Veganer-Horde"];
+let prefix : string[] = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Rückenzertrümmernde(s) "]; // length = 6, da 6 Einträge. Von 0-5.
+let monsterName : string[] = ["lannister", "Zombie", "Knochensauger", "Xavandrius", "Lommel"]; // length = 3, da 3 Einträge. Von 0-2.
+let suffix : string[] = [" der Dummen", " ausm Keller", " des Glaubens", " vom BVB ... ihh", " von Montag", " der Zerberstung"]; // length = 6, da hier 6 Einträge sind. Von 0-5.
+let weaponarray : string[] = ["Bleistift","Rasierer von Gilette Abdi","Messer","Bazooka","Veganer-Horde"];
 let iqarray: string[] = ["0","unavailable","100","hochintelligent","drai"]; 
 let monsterModifers : string[] = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
 let bilderArray: string[] = ["imgs/M1.png","imgs/M2.jpg","imgs/M3.jpg","imgs/M4.jpg","imgs/M5.jpg"]
@@ -55,7 +55,7 @@ console.log(monsterArray ); // Gebe das Monster-Array einmal zu beginn aus. Es s
 // INSGESAMT EINGEBAUTE FEHLER bei den Funktionen: IIIII (5 / fünf)
 
 // Generelle onload-funktion um Event-Listener zum Dokument hinzuzufügen
-document.addEventListener(`DOMContentLoaded`,init);
+document.addEventListener("DOMContentLoaded",init);
 
 function  init() {
     document.getElementById("monsterSpawner").addEventListener("click", generateMonster);
