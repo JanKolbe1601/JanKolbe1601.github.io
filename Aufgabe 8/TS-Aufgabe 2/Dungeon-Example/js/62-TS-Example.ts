@@ -44,7 +44,7 @@ let suffix : string[] = [" der Dummen", " ausm Keller", " des Glaubens", " vom B
 let weaponarray : string[] = ["Bleistift","Rasierer von Gilette Abdi","Messer","Bazooka","Veganer-Horde"];
 let iqarray: string[] = ["0","unavailable","100","hochintelligent","drai"]; 
 let monsterModifers : string[] = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
-let bilderArray: string[] = ["imgs/M1.png","imgs/M2.jpg","imgs/M3.jpg","imgs/M4.jpg","imgs/M5.jpg"]
+let bilderArray: string[] = ["imgs/M1.jpg","imgs/M2.jpg","imgs/M3.jpg","imgs/M4.jpg","imgs/M5.jpg"]
 
 // -- Initialisierung für viele/variable Anzahl an Monster --
 let monsterArray : Monster[] = []; // Das Haupt-Array wurde erstellt und initialisiert!
@@ -70,30 +70,34 @@ function  init() {
 // Die Hauptfunktion, um ein Monster zu erstellen. Wird von einem Button ausgerufen.
 // Generiert ein neues Monster. Dieses wird zu dem Monster-Array hinzugefügt.
 // Ruft eine Funktion auf, welche dann das entsprechende HTML erzeugt.
+
 function generateMonster()
 {
-    let newMonsterName : string = generateMonsterName();                // Eigens-gebaute Funktion, welche einen string zurück gibt.
-    let newMonsterHP : number = generateMonsterHitPoints();             // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
-    let newMonsterXP : number = generateMonsterXP();                    // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
-    let newMonsterModifier : string[] = generateMonsterModifer();       // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
-    let newMonsterWeapon : string = generateWeapon();
-    let newMonsterIq : string = generateIq();
+    let monsteranzahl = getRNGNumber(3)+1;
+    for (let i = 0; i < monsteranzahl; i++) {     
+    
+        let newMonsterName : string = generateMonsterName();                // Eigens-gebaute Funktion, welche einen string zurück gibt.
+        let newMonsterHP : number = generateMonsterHitPoints();             // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
+        let newMonsterXP : number = generateMonsterXP();                    // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
+        let newMonsterModifier : string[] = generateMonsterModifer();       // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
+        let newMonsterWeapon : string = generateWeapon();
+        let newMonsterIq : string = generateIq();
 
-    let newMonster : Monster = {                                        // Monster wird erstellt.
-        monsterName : newMonsterName, 
-        monsterHealthPoints : newMonsterHP,
-        monsterExperience : newMonsterXP,
-        monsterModifier : newMonsterModifier,
-        monsterWaffe : newMonsterWeapon,
-        monsterIQ : newMonsterIq,
-        //monsterMoney : 0,
-    };
+        let newMonster : Monster = {                                        // Monster wird erstellt.
+            monsterName : newMonsterName, 
+            monsterHealthPoints : newMonsterHP,
+            monsterExperience : newMonsterXP,
+            monsterModifier : newMonsterModifier,
+            monsterWaffe : newMonsterWeapon,
+            monsterIQ : newMonsterIq,
 
-    monsterArray.push(newMonster);                                      // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
+        };
+         
+        monsterArray.push(newMonster);                                      // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
 
-    //console.log(monsterArray[-1].monsterExperience);                    // Man kann nur auf Array-Teile zugreifen, welche definiert sind. -1 ist nicht definitiert (und wird es auch nie sein).
 
-    monsterGenerateHTML();                                              // Triggere die Generierung von HTML
+        monsterGenerateHTML();     
+    }                                         // Triggere die Generierung von HTML
 }
 function generateWeapon():string{
     let weapon:string = "waffe:";

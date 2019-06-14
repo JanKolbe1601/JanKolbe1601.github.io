@@ -10,20 +10,20 @@ let playerName = "Spielername"; // Ein paar globale Variablen, welche den Spiele
 let playerXP = 0; // Stellt die gesammelte Erfahrung des Spielers dar.
 let playerXPperLevel = 500; // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
-let prefix = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Kniescheibenzertrümmernde(s) "]; // length = 6, da 6 Einträge. Von 0-5.
-let monsterName = ["Ratte", "Nagetier", "Ungeziefer"]; // length = 3, da 3 Einträge. Von 0-2.
-let suffix = [" des Verderbens", " aus der Hölle", " der Lethalität", " mit Rheuma", " der Redundanz", " der Zerberstung"]; // length = 6, da hier 6 Einträge sind. Von 0-5.
-let weaponarray = ["Bleistift", "Rasierer von Gilette Abdi", "Messer", "Bazuka", "Veganer-Horde"];
+let prefix = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Rückenzertrümmernde(s) "]; // length = 6, da 6 Einträge. Von 0-5.
+let monsterName = ["lannister", "Zombie", "Knochensauger", "Xavandrius", "Lommel"]; // length = 3, da 3 Einträge. Von 0-2.
+let suffix = [" der Dummen", " ausm Keller", " des Glaubens", " vom BVB ... ihh", " von Montag", " der Zerberstung"]; // length = 6, da hier 6 Einträge sind. Von 0-5.
+let weaponarray = ["Bleistift", "Rasierer von Gilette Abdi", "Messer", "Bazooka", "Veganer-Horde"];
 let iqarray = ["0", "unavailable", "100", "hochintelligent", "drai"];
 let monsterModifers = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
-let bilderArray = ["imgs/M1.png", "imgs/M2.jpg", "imgs/M3.jpg", "imgs/M4.jpg", "imgs/M5.jpg"];
+let bilderArray = ["imgs/M1.jpg", "imgs/M2.jpg", "imgs/M3.jpg", "imgs/M4.jpg", "imgs/M5.jpg"];
 // -- Initialisierung für viele/variable Anzahl an Monster --
 let monsterArray = []; // Das Haupt-Array wurde erstellt und initialisiert!
 console.log(monsterArray); // Gebe das Monster-Array einmal zu beginn aus. Es sollte leer sein.
 // ----------- Funktionen ----------- //
 // INSGESAMT EINGEBAUTE FEHLER bei den Funktionen: IIIII (5 / fünf)
 // Generelle onload-funktion um Event-Listener zum Dokument hinzuzufügen
-document.addEventListener(`DOMContentLoaded`, init);
+document.addEventListener("DOMContentLoaded", init);
 function init() {
     document.getElementById("monsterSpawner").addEventListener("click", generateMonster);
     document.getElementById("push").addEventListener("click", lol);
@@ -34,23 +34,25 @@ function init() {
 // Generiert ein neues Monster. Dieses wird zu dem Monster-Array hinzugefügt.
 // Ruft eine Funktion auf, welche dann das entsprechende HTML erzeugt.
 function generateMonster() {
-    let newMonsterName = generateMonsterName(); // Eigens-gebaute Funktion, welche einen string zurück gibt.
-    let newMonsterHP = generateMonsterHitPoints(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
-    let newMonsterXP = generateMonsterXP(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
-    let newMonsterModifier = generateMonsterModifer(); // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
-    let newMonsterWeapon = generateWeapon();
-    let newMonsterIq = generateIq();
-    let newMonster = {
-        monsterName: newMonsterName,
-        monsterHealthPoints: newMonsterHP,
-        monsterExperience: newMonsterXP,
-        monsterModifier: newMonsterModifier,
-        monsterWaffe: newMonsterWeapon,
-        monsterIQ: newMonsterIq,
-    };
-    monsterArray.push(newMonster); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
-    //console.log(monsterArray[-1].monsterExperience);                    // Man kann nur auf Array-Teile zugreifen, welche definiert sind. -1 ist nicht definitiert (und wird es auch nie sein).
-    monsterGenerateHTML(); // Triggere die Generierung von HTML
+    let monsteranzahl = getRNGNumber(3) + 1;
+    for (let i = 0; i < monsteranzahl; i++) {
+        let newMonsterName = generateMonsterName(); // Eigens-gebaute Funktion, welche einen string zurück gibt.
+        let newMonsterHP = generateMonsterHitPoints(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
+        let newMonsterXP = generateMonsterXP(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
+        let newMonsterModifier = generateMonsterModifer(); // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
+        let newMonsterWeapon = generateWeapon();
+        let newMonsterIq = generateIq();
+        let newMonster = {
+            monsterName: newMonsterName,
+            monsterHealthPoints: newMonsterHP,
+            monsterExperience: newMonsterXP,
+            monsterModifier: newMonsterModifier,
+            monsterWaffe: newMonsterWeapon,
+            monsterIQ: newMonsterIq,
+        };
+        monsterArray.push(newMonster); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
+        monsterGenerateHTML();
+    } // Triggere die Generierung von HTML
 }
 function generateWeapon() {
     let weapon = "waffe:";
