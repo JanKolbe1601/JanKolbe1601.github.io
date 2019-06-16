@@ -51,7 +51,7 @@ function generateMonster() {
             monsterIQ: newMonsterIq,
         };
         monsterArray.push(newMonster); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
-        monsterGenerateHTML();
+        updateHTML();
     } // Triggere die Generierung von HTML
 }
 function generateWeapon() {
@@ -67,16 +67,16 @@ function generateIq() {
     return iq;
 }
 // Generiert HTML-Elemente, welche dann einem Element untergeordnet werden. Erzeugt ebenfalls einen Event-Listener auf dem Button.
-function monsterGenerateHTML() {
+function monsterGenerateHTML(monsterCount) {
     let holdingDiv = document.createElement("div"); // Erstelle ein neues HTML-Element vom typ <div>. Es ist jedoch noch nicht zu sehen!
-    holdingDiv.setAttribute("id", "monster" + monsterArray.length); // Die ID jedes neu-erstellten Monsters entspricht der aktuellen Array-Länge.
+    holdingDiv.setAttribute("id", "monster" + monsterCount); // Die ID jedes neu-erstellten Monsters entspricht der aktuellen Array-Länge.
     holdingDiv.setAttribute("class", "monster"); // Klasse für Visuals.
     document.getElementById(monsterHolder).appendChild(holdingDiv); // Das HTML-Element muss erst noch zu einem Objekt hinzugefügt werden, in diesem Fall mit der id "monsterHoldingCell"
     let monsterName = document.createElement("p"); // Generiere einen <p>
-    monsterName.innerHTML = monsterArray[monsterArray.length - 1].monsterName; // Inhalt des <p>: Monster-Name des letzten Monsters im Array.
+    monsterName.innerHTML = monsterArray[monsterCount - 1].monsterName; // Inhalt des <p>: Monster-Name des letzten Monsters im Array.
     holdingDiv.appendChild(monsterName); // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
     let monsterMod = document.createElement("p"); // Generiere einen <p>
-    monsterMod.innerHTML = monsterArray[monsterArray.length - 1].monsterModifier[0] + ", " + monsterArray[monsterArray.length - 1].monsterModifier[1]; // Inhalt des <p>: Monster-Modifizierer null und eins
+    monsterMod.innerHTML = monsterArray[monsterCount - 1].monsterModifier[0] + ", " + monsterArray[monsterCount - 1].monsterModifier[1]; // Inhalt des <p>: Monster-Modifizierer null und eins
     holdingDiv.appendChild(monsterMod); // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
     let monsterImg = document.createElement("img"); // Erstelle ein <img>-Element
     let pic = "";
@@ -86,16 +86,16 @@ function monsterGenerateHTML() {
     monsterImg.setAttribute("alt", "Schreckliches Monster"); // Das alt für das Bild wird hier festgelegt.
     holdingDiv.appendChild(monsterImg);
     let waffe = document.createElement("p");
-    waffe.innerHTML = monsterArray[monsterArray.length - 1].monsterWaffe;
+    waffe.innerHTML = monsterArray[monsterCount - 1].monsterWaffe;
     holdingDiv.appendChild(waffe);
     let iq = document.createElement("p");
-    iq.innerHTML = monsterArray[monsterArray.length - 1].monsterIQ;
+    iq.innerHTML = monsterArray[monsterCount - 1].monsterIQ;
     holdingDiv.appendChild(iq);
     let monsterBtn = document.createElement("BUTTON"); // Erstelle ein <button>-Element
     monsterBtn.innerHTML = "Monster bekämpfen!"; // Verändere den Inhalt des HTML-Elementes. Der genaue Text ist dabei euch überlassen.
     holdingDiv.appendChild(monsterBtn); // Füge den Button zu dem holding-div hinzu.
-    let monsterCount = monsterArray.length; // Die aktuelle Anzahl vorhandener Monster, zudem auch die neue Zahl für das Monster-Array.
-    console.log("Aktuelle Anzahl an Monstern: " + monsterCount);
+    //let monsterCount : number = monsterArray.length;                    // Die aktuelle Anzahl vorhandener Monster, zudem auch die neue Zahl für das Monster-Array.
+    //console.log("Aktuelle Anzahl an Monstern: " + monsterCount);
     monsterBtn.addEventListener(// Füge dem Monster eine Funktion hinzu.
     'click', function () {
         fightMonster(monsterCount); // Wenn das Monster erstellt wird erhält die Funktion einen Parameter, welcher der aktuellen Anzahl entspricht.
@@ -149,9 +149,16 @@ function generateMonsterModifer() {
 // Aufgerufen, wenn man auf den Button klickt.
 // Der Spieler kämpft gegen das entsprechende Monster. Er erhält dann Erfahrungspunkte.
 function fightMonster(_index) {
-    console.log("Spieler kämpft gegen Monster und gewinnt!"); // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
-    console.log("Das Monster weigert sich zu verschwinden."); // Wird nächste Stunde erweitert.
-    playerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
+    if (Math.random() < 0.7) {
+        playerXP += monsterArray[_index - 1].monsterExperience;
+        monsterArray.splice(_index - 1, 1);
+        console.log("Yay Monster wurde besiegt!");
+        updateHTML();
+    }
+    else {
+        window.alert("Du Hast das Monster noch nicht besiegt! Probiere es noch einmal! ");
+        console.log("Das Monster Verschwindet nicht.");
+    }
     updatePlayerLevel();
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
@@ -164,5 +171,28 @@ let lolArray = [];
 function lol() {
     lolArray.push("lol");
     console.log(lolArray);
+}
+function updateHTML() {
+    clearMonsterCell();
+    monsterGenerateHTMLAll();
+    getMonsterCount();
+    console.log("MonsterCount: " + getMonsterCount());
+}
+function monsterGenerateHTMLAll() {
+    for (let i = 1; i <= monsterArray.length; i++) {
+        monsterGenerateHTML(i);
+    }
+}
+function clearMonsterCell() {
+    let monsterAnzeige = document.getElementById("monsterHoldingCell");
+    let children = monsterAnzeige.children;
+    let childCount = children.length;
+    for (let i = 0; i < childCount; i++) {
+        if (monsterAnzeige.firstElementChild != null)
+            monsterAnzeige.removeChild(monsterAnzeige.firstElementChild);
+    }
+}
+function getMonsterCount() {
+    return monsterArray.length;
 }
 //# sourceMappingURL=62-TS-Example.js.map

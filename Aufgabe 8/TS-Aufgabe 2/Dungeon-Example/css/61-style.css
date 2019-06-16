@@ -87,7 +87,7 @@ button {
 }
 
 footer {
-	position: absolute; 
+	position: fixed; 
 	bottom: 0.5em; 
 	right: 1em;
 }
