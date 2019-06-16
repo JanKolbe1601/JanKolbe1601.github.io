@@ -153,13 +153,13 @@ function fightMonster(_index) {
         playerXP += monsterArray[_index - 1].monsterExperience;
         monsterArray.splice(_index - 1, 1);
         console.log("Yay Monster wurde besiegt!");
-        updateHTML();
     }
     else {
         window.alert("Du Hast das Monster noch nicht besiegt! Probiere es noch einmal! ");
         console.log("Das Monster Verschwindet nicht.");
     }
     updatePlayerLevel();
+    updateHTML();
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel() {
