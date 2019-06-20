@@ -288,3 +288,4 @@ function getMonsterCount() {
     return monsterArray.length;
 
 }    
+
