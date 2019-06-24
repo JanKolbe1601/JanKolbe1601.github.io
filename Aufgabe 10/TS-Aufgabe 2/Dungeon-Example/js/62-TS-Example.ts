@@ -34,7 +34,7 @@ interface Monster {
 // INSGESAMT EINGEBAUTE FEHLER bei den Variablen: I (1 / einer)
 
 let monsterHolder : string = "monsterHoldingCell";                                  // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
-let playerLevel : number = 1
+let playerLevel : number = 1;
 let playerName : string = "Spielername";                                            // Ein paar globale Variablen, welche den Spieler darstellen.
 let playerXP : number = 0;                                                          // Stellt die gesammelte Erfahrung des Spielers dar.
 let playerXPperLevel : number = 500;                                                // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
@@ -47,7 +47,7 @@ let weaponarray : string[] = ["Bleistift","Rasierer von Gilette Abdi","Messer","
 let iqarray: string[] = ["0","unavailable","100","hochintelligent","drai"]; 
 let monsterModifers : string[] = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
 let monsterImage: string[] = ["imgs/M1.jpg","imgs/M2.jpg","imgs/M3.jpg","imgs/M4.jpg","imgs/M5.jpg"]
-let monsterLvL : number = -2;
+
 // -- Initialisierung für viele/variable Anzahl an Monster --
 let monsterArray : Monster[] = []; // Das Haupt-Array wurde erstellt und initialisiert!
 console.log(monsterArray ); // Gebe das Monster-Array einmal zu beginn aus. Es sollte leer sein.
@@ -137,16 +137,16 @@ function monsterGenerateHTML(monsterCount: number)
     monsterMod.innerHTML = monsterArray[monsterCount - 1].monsterModifier[0] + ", " +  monsterArray[monsterCount -1].monsterModifier[1]; // Inhalt des <p>: Monster-Modifizierer null und eins
     holdingDiv.appendChild(monsterMod);                                // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
 
-    let monsterImg = document.createElement("img"); // Erstelle ein <img>-Element
+    let monsterImg : HTMLElement = document.createElement("img"); // Erstelle ein <img>-Element
     monsterImg.setAttribute("src", monsterArray[monsterCount - 1].monsterImage); // Der Pfad für das Bild muss über setAttribute festgelegt werden. Der Bildpfad kann natürlich auch anders aussehen.
     monsterImg.setAttribute("alt", "Monster"); // Das alt für das Bild wird hier festgelegt.
     holdingDiv.appendChild(monsterImg);
     
-    let monsterLvl = document.createElement("p");
+    let monsterLvl : HTMLElement = document.createElement("p");
     monsterLvl.innerHTML = "Level " + monsterArray[monsterCount - 1].monsterLvL;
     holdingDiv.appendChild(monsterLvl);
 
-    let monsterHP = document.createElement("p");
+    let monsterHP : HTMLElement = document.createElement("p");
     monsterHP.innerHTML = "HP " + monsterArray[monsterCount- 1].monsterHealthPoints;
     monsterHP.style.backgroundColor = "#00d200";
     monsterHP.style.width = monsterArray[monsterCount - 1].monsterHealthPoints + "%";
@@ -185,7 +185,6 @@ function getRNGNumber(_maxNumber : number) : number
 {
     return Math.floor(Math.random() * _maxNumber)                                                // Gebe diese Zahl zurück, Funktion kann ähnlich einer Variable in Rechnungen genutzt werden.
 }
-
 
 // Diese Funktion gibt einen zusammengewürfelten Namen zurück.
 // Wird für die Monster-generierung verwendet!
@@ -338,7 +337,8 @@ function updatePlayerLevel(XPchange : number) {
     }
     document.getElementById("xpCounter").innerHTML = "Player-Level: " + playerLevel + " (XP: " + playerXP + " / " + playerXPperLevel + ")"; 
     console.log("Spieler " + playerName + " hat nun Level " + playerLevel + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)");
-    if (playerLevel == 20) {
+    if (playerLevel >= 20) {
+        console.log("was geht");
         alert("Win...");
         playerLevel = 1;
         playerXP = 0;

@@ -18,7 +18,6 @@ let weaponarray = ["Bleistift", "Rasierer von Gilette Abdi", "Messer", "Bazooka"
 let iqarray = ["0", "unavailable", "100", "hochintelligent", "drai"];
 let monsterModifers = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
 let monsterImage = ["imgs/M1.jpg", "imgs/M2.jpg", "imgs/M3.jpg", "imgs/M4.jpg", "imgs/M5.jpg"];
-let monsterLvL = -2;
 // -- Initialisierung für viele/variable Anzahl an Monster --
 let monsterArray = []; // Das Haupt-Array wurde erstellt und initialisiert!
 console.log(monsterArray); // Gebe das Monster-Array einmal zu beginn aus. Es sollte leer sein.
@@ -239,7 +238,8 @@ function updatePlayerLevel(XPchange) {
     }
     document.getElementById("xpCounter").innerHTML = "Player-Level: " + playerLevel + " (XP: " + playerXP + " / " + playerXPperLevel + ")";
     console.log("Spieler " + playerName + " hat nun Level " + playerLevel + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)");
-    if (playerLevel == 20) {
+    if (playerLevel >= 20) {
+        console.log("was geht");
         alert("Win...");
         playerLevel = 1;
         playerXP = 0;
