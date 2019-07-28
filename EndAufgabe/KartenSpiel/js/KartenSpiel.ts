@@ -317,7 +317,6 @@ function zeigeKarteSpieler() {
         console.log(newCard);
     }
 }
-
 function zeigeKartePC () {
     document.getElementById("PC").innerHTML = "";
     console.log("chabbos wissen wer der babbo ist ;)");
