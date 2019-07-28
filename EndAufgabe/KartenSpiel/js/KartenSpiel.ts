@@ -381,7 +381,7 @@ function spielekarte(event : MouseEvent){
     }
     if(ablagekartenarray[t].farbe != kartenfarbe || ablagekartenarray[t].nummer != kartennummer){
 
-        alert("dies Karte wo isch:D");
+        alert("diese Karte wo isch :D");
     }
     
     Pcspieltkarte(); 
