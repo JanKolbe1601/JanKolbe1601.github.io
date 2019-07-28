@@ -296,17 +296,17 @@ function zeigeKartePC() {
         document.getElementById("Ablage").appendChild(newCard);
     }
     if (Spielerkartenarray.length < 1) {
-        alert("Spieler hat gewonnen");
+        alert("Glückwunsch du hast gewonnen!!! :D");
         leereSpeilfeld();
     }
     if (Pckartenarray.length < 1) {
-        alert("Pc hat gewonnen");
+        alert("Pc hat gewonnen... :/");
         leereSpeilfeld();
     }
 }
 function Kartenziehen() {
     if (kartenzieharray.length <= 1) {
-        alert("Ziehstapel ist leer");
+        alert("Ziehstapel ist leer.");
         leereSpeilfeld();
     }
     Spielerkartenarray.push(kartenzieharray[1]);
