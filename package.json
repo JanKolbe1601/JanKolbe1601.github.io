@@ -1,0 +1,19 @@
+{
+  "name": "jankolbe1601.github.io",
+  "version": "1.0.0",
+  "description": "final task jan kolbe",
+  "main": "index.js",
+  "scripts": {
+    "script": "node Endabgabe/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanKolbe1601/JanKolbe1601.github.io.git"
+  },
+  "author": "Jan Kolbe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JanKolbe1601/JanKolbe1601.github.io/issues"
+  },
+  "homepage": "https://github.com/JanKolbe1601/JanKolbe1601.github.io#readme"
+}
