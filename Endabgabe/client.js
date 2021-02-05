@@ -3,6 +3,7 @@ var newYear;
     function insert(_name) {
         let query = "command=insert";
         for (let i = 0; i < newYear.allFireworks.length; i++) {
+            query += "&name=" + _name;
             let Element = {
                 type: newYear.allFireworks[i].type,
                 x: newYear.allFireworks[i].x.toString(),

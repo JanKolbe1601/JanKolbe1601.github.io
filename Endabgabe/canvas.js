@@ -30,6 +30,7 @@ var newYear;
     }
     function saveCanvas() {
         let bildName = prompt("wie möchten sie ihr Bild nennen?");
+        newYear.insert(bildName);
     }
     function getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));

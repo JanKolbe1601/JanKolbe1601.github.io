@@ -8,11 +8,10 @@ let db;
 let players;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
-    // databaseURL = "mongodb+srv://username:password@hostname:port/database";
-    //databaseURL = "mongodb+srv://testuser:testpassword@eia2-57vpd.mongodb.net/eia2";
-    databaseURL = "mongodb+srv://Regina:12345@reginashood-msrks.mongodb.net/zauberbild";
-    //databaseURL = "mongodb+srv://reginashood-msrks.mongodb.net/<dbname>"
-    databaseName = "zauberbild";
+    databaseURL = "mongodb+srv://jan:1234@cluster0.3yq4i.mongodb.net/Firework";
+    //databaseURL = "mongo "mongodb+srv://cluster0.3yq4i.mongodb.net/Firework" --username jan"
+    //databaseURL = "mongo "mongodb+srv://jan:1234@cluster0.3yq4i.mongodb.net/Firework" --username jan"
+    databaseName = "fireworks";
 }
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, { connectTimeoutMS: 8000 }, handleConnect);

@@ -33,7 +33,8 @@ namespace newYear {
     }
 
     function saveCanvas(): void {
-        let bildName: string = prompt("wie möchten sie ihr Bild nennen?")
+        let bildName: string = prompt("wie möchten sie ihr Bild nennen?");
+        insert(bildName);
     }
     
     function getRandomInt(max:number) {

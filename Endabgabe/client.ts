@@ -12,6 +12,7 @@ namespace newYear {
         let query: string = "command=insert";
 
         for (let i: number = 0; i < allFireworks.length; i++) {
+            query += "&name=" + _name;
             let Element: Object = {
                 type: allFireworks[i].type,
                 x: allFireworks[i].x.toString(),
