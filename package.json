@@ -4,7 +4,7 @@
   "description": "final task jan kolbe",
   "main": "index.js",
   "scripts": {
-    "start": "node Endabgabe/server.js"
+    "start": "node Endabgabe/server.js remote"
   },
   "repository": {
     "type": "git",
