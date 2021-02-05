@@ -14,6 +14,7 @@ var newYear;
             query += "&type=" + Element.type + "&x=" + Element.x + "&y=" + Element.y + "&color=" + Element.color + "&particles=" + Element.particles;
         }
         sendRequest(query, handleInsertResponse);
+        console.log(query);
     }
     newYear.insert = insert;
     function sendRequest(_query, _callback) {

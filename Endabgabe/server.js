@@ -21,11 +21,11 @@ function handleRequest(_request, _response) {
     switch (command) {
         case "insert":
             let Canvas = {
-                type: ["type"],
-                x: ["x"],
-                y: ["y"],
-                color: ["color"],
-                particles: ["particles"]
+                type: query["type"],
+                x: query["x"],
+                y: query["y"],
+                color: query["color"],
+                particles: query["particles"]
             };
             Database.insert(Canvas);
             respond(_response, "Bild wurde gespeichert");
