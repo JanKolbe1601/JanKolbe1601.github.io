@@ -1,0 +1,21 @@
+{
+	"name": "miniserver",
+	"version": "1.0.0",
+	"description": "Minimal server just bouncing the URL",
+	"author": "Jirka, adapted by Lukas",
+	"main": "Server.js",
+	"scripts": {
+		"start": "node Server.js"
+	},
+	"engines": {
+		"node": "8.11.3",
+		"mongodb": "^3.2.5"
+	},
+	"dependencies": {
+		"@types/mongodb": "^3.1.27",
+		"mongodb": "^3.2.5"
+	},
+	"devDependencies": {
+		"@types/node": "^11.15.44"
+	}
+}
