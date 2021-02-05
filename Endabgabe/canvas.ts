@@ -5,7 +5,7 @@ namespace newYear {
     let canvas: HTMLCanvasElement;
     let imageData: ImageData;
     export let allFireworks: Firework[] = [];
-    export let serverAddress: string = "https://fallerr.herokuapp.com/"; 
+    export let serverAddress: string = "https://fireworkofjan.herokuapp.com/"; 
 
     function init(): void {
         canvas = document.getElementsByTagName("canvas")[1];

@@ -4,7 +4,7 @@ var newYear;
     let canvas;
     let imageData;
     newYear.allFireworks = [];
-    newYear.serverAddress = "https://fallerr.herokuapp.com/";
+    newYear.serverAddress = "https://fireworkofjan.herokuapp.com/";
     function init() {
         canvas = document.getElementsByTagName("canvas")[1];
         newYear.crc = canvas.getContext("2d");
