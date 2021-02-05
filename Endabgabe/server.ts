@@ -31,11 +31,11 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
     switch (command) {
         case "insert":
         let Canvas: Object = {
-            type: ["type"],
-            x: ["x"],
-            y: ["y"],
-            color: ["color"],
-            particles: ["particles"]
+            type: query["type"],
+            x: query["x"],
+            y: query["y"],
+            color: query["color"],
+            particles: query["particles"]
         };
         Database.insert(Canvas);
         respond(_response, "Bild wurde gespeichert");
