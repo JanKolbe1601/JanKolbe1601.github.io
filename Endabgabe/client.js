@@ -6,6 +6,7 @@ var newYear;
         query += "&Name=" + _name;
         for (let i = 0; i < newYear.allFireworks.length; i++) {
             let Element = {
+                name: _name,
                 type: newYear.allFireworks[i].type,
                 x: newYear.allFireworks[i].x.toString(),
                 y: newYear.allFireworks[i].y.toString(),
@@ -41,12 +42,9 @@ var newYear;
             newYear.rebuildArray = JSON.parse(xhr.response);
             console.log(newYear.rebuildArray);
             if (buttonExists == false) {
-                for (let i = 0; i <= newYear.rebuildArray.length; i++) {
-                    if (newYear.rebuildArray[i].name == "null" || newYear.rebuildArray[i].name == "") {
-                        return;
-                    }
+                for (let i = 0; i < newYear.rebuildArray.length; i++) {
                     let button = document.createElement("button");
-                    button.innerText = newYear.rebuildArray[i].name;
+                    button.innerText = "Bild" + i.toString();
                     button.addEventListener("click", newYear.rebuildCanvas);
                     button.setAttribute("id", i.toString());
                     document.getElementById("output").appendChild(button);

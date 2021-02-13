@@ -62,6 +62,33 @@ var newYear;
     newYear.getCoordinates = getCoordinates;
     function rebuildCanvas(_e) {
         console.log("rebuild");
+        let id = this.id;
+        let xCoordinates = newYear.rebuildArray[id].x;
+        let yCoordinates = newYear.rebuildArray[id].y;
+        let type = newYear.rebuildArray[id].type;
+        let color = newYear.rebuildArray[id].color;
+        let particles = newYear.rebuildArray[id].particles;
+        for (let i = 0; i <= newYear.allFireworks.length; i++) {
+            newYear.allFireworks.splice(0, newYear.allFireworks.length);
+        }
+        for (let i = 0; i < xCoordinates.length; i++) {
+            let NewObject = {
+                type: type[i],
+                x: xCoordinates[i],
+                y: yCoordinates[i],
+                color: color[i],
+                particles: particles[i],
+                name: ""
+            };
+            if (NewObject.type == "line") {
+                let firework = new newYear.Firework(NewObject.color, parseInt(NewObject.particles), parseInt(NewObject.x), parseInt(NewObject.y));
+                newYear.allFireworks.push(firework);
+            }
+            else {
+                let firework = new newYear.FireworkTriangle(NewObject.color, parseInt(NewObject.particles), parseInt(NewObject.x), parseInt(NewObject.y));
+                newYear.allFireworks.push(firework);
+            }
+        }
     }
     newYear.rebuildCanvas = rebuildCanvas;
     function update() {

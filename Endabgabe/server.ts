@@ -7,6 +7,15 @@ interface AssocStringString {
     [key: string]: string;
 }
 
+export interface CanvasElement {
+    name: string;
+    type: string;
+    x: string;
+    y: string;
+    color: string;
+    particles: string;
+}
+
 
 let port: number = Number(process.env.PORT);
 if (!port)
@@ -30,7 +39,8 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 
     switch (command) {
         case "insert":
-        let Canvas: Object = {
+        let Canvas: CanvasElement = {
+            name: query.Name,
             type: query.Type,
             x: query.X,
             y: query.Y,

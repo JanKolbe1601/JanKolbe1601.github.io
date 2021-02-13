@@ -68,7 +68,34 @@ namespace newYear {
 
     export function rebuildCanvas(_e: MouseEvent): void {
         console.log("rebuild");
+        let id = this.id;
+        let xCoordinates: string = rebuildArray[id].x;
+        let yCoordinates: string = rebuildArray[id].y;
+        let type: string = rebuildArray[id].type;
+        let color: string = rebuildArray[id].color;
+        let particles: string = rebuildArray[id].particles;
+
+        for (let i: number = 0; i <= allFireworks.length; i++) {
+            allFireworks.splice(0, allFireworks.length);
+        }
+        for (let i: number = 0; i < xCoordinates.length; i++) {
+            let NewObject: CanvasElement = {
+                type: type[i],
+                x: xCoordinates[i],
+                y: yCoordinates[i],
+                color: color[i],
+                particles: particles[i],
+                name: ""
+            }
+            if (NewObject.type == "line"){
+                let firework: Firework = new Firework(NewObject.color, parseInt(NewObject.particles), parseInt(NewObject.x), parseInt(NewObject.y));
+                allFireworks.push(firework);
+            } else {
+                let firework: Firework = new FireworkTriangle(NewObject.color, parseInt(NewObject.particles), parseInt(NewObject.x), parseInt(NewObject.y));
+                allFireworks.push(firework);
+            }
     }
+}
 
     function update():void {
         if (waitForOrigin) { return; }

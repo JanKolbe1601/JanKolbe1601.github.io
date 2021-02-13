@@ -1,11 +1,4 @@
 namespace newYear {
-    export interface Object {
-        type: string;
-        x: string;
-        y: string;
-        color: string;
-        particles: string;
-    }
 
     let buttonExists: boolean = false;
 
@@ -26,7 +19,8 @@ namespace newYear {
         query += "&Name=" + _name;
         for (let i: number = 0; i < allFireworks.length; i++) {
             
-            let Element: Object = {
+            let Element: CanvasElement = {
+                name: _name,
                 type: allFireworks[i].type,
                 x: allFireworks[i].x.toString(),
                 y: allFireworks[i].y.toString(),
@@ -64,12 +58,9 @@ namespace newYear {
             rebuildArray = JSON.parse(xhr.response);
             console.log(rebuildArray);
             if (buttonExists == false) {
-                for (let i = 0; i <= rebuildArray.length; i++) {
-                    if (rebuildArray[i].name == "null" || rebuildArray[i].name == "") {
-                        return;
-                    }
+                for (let i = 0; i < rebuildArray.length; i++) {
                     let button = document.createElement("button");
-                    button.innerText = rebuildArray[i].name;
+                    button.innerText = "Bild" + i.toString();
                     button.addEventListener("click", rebuildCanvas);
                     button.setAttribute("id", i.toString());
                     document.getElementById("output").appendChild(button);

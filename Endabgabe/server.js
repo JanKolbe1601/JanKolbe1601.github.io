@@ -21,6 +21,7 @@ function handleRequest(_request, _response) {
     switch (command) {
         case "insert":
             let Canvas = {
+                name: query.Name,
                 type: query.Type,
                 x: query.X,
                 y: query.Y,
