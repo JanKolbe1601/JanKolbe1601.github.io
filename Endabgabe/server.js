@@ -21,13 +21,14 @@ function handleRequest(_request, _response) {
     switch (command) {
         case "insert":
             let Canvas = {
-                type: query["type"],
-                x: query["x"],
-                y: query["y"],
-                color: query["color"],
-                particles: query["particles"]
+                type: query.Type,
+                x: query.X,
+                y: query.Y,
+                color: query.Color,
+                particles: query.Particles
             };
             Database.insert(Canvas);
+            console.log("Canvas:", Canvas);
             respond(_response, "Bild wurde gespeichert");
             break;
         case "find":

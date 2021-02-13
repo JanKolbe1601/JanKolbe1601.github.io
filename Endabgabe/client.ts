@@ -10,20 +10,20 @@ namespace newYear {
 
     export function insert(_name: string): void {
         let query: string = "command=insert";
-
+        query += "&Name=" + _name;
         for (let i: number = 0; i < allFireworks.length; i++) {
-            query += "&name=" + _name;
+            
             let Element: Object = {
                 type: allFireworks[i].type,
                 x: allFireworks[i].x.toString(),
                 y: allFireworks[i].y.toString(),
-                color: allFireworks[i].toString(),
+                color: allFireworks[i].color.toString(),
                 particles: allFireworks[i].particles.toString()
             }
-            query += "&type=" + Element.type + "&x=" + Element.x + "&y=" + Element.y + "&color=" + Element.color + "&particles=" + Element.particles;
+            query += "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y + "&Color=" + Element.color + "&Particles=" + Element.particles;
         }
         sendRequest(query, handleInsertResponse);
-        console.log(query);
+        console.log("query:", query);
     }
 
     function sendRequest(_query: string, _callback: EventListener): void {

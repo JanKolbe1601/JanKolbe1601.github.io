@@ -2,19 +2,19 @@ var newYear;
 (function (newYear) {
     function insert(_name) {
         let query = "command=insert";
+        query += "&Name=" + _name;
         for (let i = 0; i < newYear.allFireworks.length; i++) {
-            query += "&name=" + _name;
             let Element = {
                 type: newYear.allFireworks[i].type,
                 x: newYear.allFireworks[i].x.toString(),
                 y: newYear.allFireworks[i].y.toString(),
-                color: newYear.allFireworks[i].toString(),
+                color: newYear.allFireworks[i].color.toString(),
                 particles: newYear.allFireworks[i].particles.toString()
             };
-            query += "&type=" + Element.type + "&x=" + Element.x + "&y=" + Element.y + "&color=" + Element.color + "&particles=" + Element.particles;
+            query += "&Type=" + Element.type + "&X=" + Element.x + "&Y=" + Element.y + "&Color=" + Element.color + "&Particles=" + Element.particles;
         }
         sendRequest(query, handleInsertResponse);
-        console.log(query);
+        console.log("query:", query);
     }
     newYear.insert = insert;
     function sendRequest(_query, _callback) {
