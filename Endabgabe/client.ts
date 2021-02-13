@@ -7,6 +7,19 @@ namespace newYear {
         particles: string;
     }
 
+    let buttonExists: boolean = false;
+
+    export interface CanvasElement {
+        name: string;
+        type: string;
+        x: string;
+        y: string;
+        color: string;
+        particles: string;
+    }
+
+    export let rebuildArray: CanvasElement[];
+
 
     export function insert(_name: string): void {
         let query: string = "command=insert";
@@ -40,27 +53,30 @@ namespace newYear {
         }
     }
 
-/*    export function find(): void {
+    export function find(): void {
         let query: string = "command=find";
         sendRequest(query, handleFindResponse);
-    } */
+    } 
 
-/*   function handleFindResponse(_event: ProgressEvent): void {
+   function handleFindResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             rebuildArray = JSON.parse(xhr.response);
+            console.log(rebuildArray);
             if (buttonExists == false) {
-                for (let i: number = 0; i <= rebuildArray.length; i++) {
-                    if (rebuildArray[i].name == "null"|| rebuildArray[i].name == "") { return; }
-                    let button: HTMLButtonElement = <HTMLButtonElement>document.createElement("button");
+                for (let i = 0; i <= rebuildArray.length; i++) {
+                    if (rebuildArray[i].name == "null" || rebuildArray[i].name == "") {
+                        return;
+                    }
+                    let button = document.createElement("button");
                     button.innerText = rebuildArray[i].name;
                     button.addEventListener("click", rebuildCanvas);
-                    button.setAttribute("id", i.toString())
+                    button.setAttribute("id", i.toString());
                     document.getElementById("output").appendChild(button);
                     buttonExists = true;
                 }
             }
         }
-    } */
+    } 
 
 }

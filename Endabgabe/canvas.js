@@ -13,6 +13,7 @@ var newYear;
         //firework.draw()
         let saveButton = document.getElementById("save");
         saveButton.addEventListener("click", saveCanvas);
+        newYear.find();
         update();
     }
     function drawBackground() {
@@ -59,6 +60,10 @@ var newYear;
         update();
     }
     newYear.getCoordinates = getCoordinates;
+    function rebuildCanvas(_e) {
+        console.log("rebuild");
+    }
+    newYear.rebuildCanvas = rebuildCanvas;
     function update() {
         if (newYear.waitForOrigin) {
             return;

@@ -15,6 +15,7 @@ namespace newYear {
         //firework.draw()
         let saveButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("save");
         saveButton.addEventListener("click", saveCanvas);
+        find();
         update();
     }
 
@@ -63,6 +64,10 @@ namespace newYear {
         waitForOrigin = false;
         //crc.clearRect()
         update();
+    }
+
+    export function rebuildCanvas(_e: MouseEvent): void {
+        console.log("rebuild");
     }
 
     function update():void {
