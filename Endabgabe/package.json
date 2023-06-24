@@ -13,7 +13,7 @@
 	},
 	"dependencies": {
 		"@types/mongodb": "^3.1.27",
-		"mongodb": "^3.2.5"
+		"mongodb": "^3.7.4"
 	},
 	"devDependencies": {
 		"@types/node": "^11.15.44"
